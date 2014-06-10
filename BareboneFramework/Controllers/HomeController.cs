@@ -11,6 +11,7 @@ namespace BareboneFramework.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = "Home Page";
+            ViewBag.LogoSrc = @"Content/Images/Header.png";
 
             return View();
         }

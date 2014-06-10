@@ -3,13 +3,16 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title - Jani Trading & Engineering</title>
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
     <body>
-        <header class="container"><img class="center-block" src="../../Content/Images/Header.png" alt="" /></header>
-        <div class="navbar navbar-inverse navbar-static-top">
+        <!--Header Part-->
+        <header class="container">
+            <img class="center-block" src="@ViewBag.LogoSrc" alt="" />
+        </header>
+        <nav class="navbar navbar-inverse navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -27,7 +30,7 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </nav>
         <div class="container body-content">
             @RenderBody()
             <hr />
