@@ -32,3 +32,14 @@
 .col-center{
   margin:0 auto;
 }
+
+/*Slide*/
+.slide {
+    width:960px; margin:auto;
+}
+.space-bottom {
+    margin: 0 0 15px 0;
+}
+.border-shade {
+    box-shadow: 0px 1px 3px #888;
+}

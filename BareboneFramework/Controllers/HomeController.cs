@@ -10,13 +10,7 @@ namespace BareboneFramework.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
-            ViewBag.IsImage = true;
-            ViewBag.LogoSrc = @"Content/Images/Logo.png";
-            ViewBag.Name = "Company Name";
-            ViewBag.Background = @"Content/Images/Header-bg.png";
-
-            return View();
+           return View();
         }
     }
 }
