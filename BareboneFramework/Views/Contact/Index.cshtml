@@ -15,21 +15,21 @@
         </div>
 
     </div>
-    <div class="row form-group">
+    <div class="form-group">
         @Html.LabelFor(model => model.LastName, "Last Name:", new { @class = "control-label col-md-2" })
         <div class="col-md-5">
             @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
         </div>
     </div>
-    <div class="row form-group">
+    <div class="form-group">
         @Html.LabelFor(model => model.Email, "Email:", new { @class = "control-label col-md-2" })
         <div class="col-md-5">
             @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
         </div>
     </div>
-    <div class="row form-group">
+    <div class="form-group">
         @Html.LabelFor(model => model.Comment, "Comments:", new { @class = "control-label col-md-2" })
         <div class="col-md-5">
             @Html.TextAreaFor(model => model.Comment, new { @class = "form-control" })
@@ -44,7 +44,9 @@
     </div>
 }
 
-<img src="@string.Format("http://maps.googleapis.com/maps/api/staticmap?center={0}&markers={0}&zoom=15&size=950x250&sensor=false", ViewBag.Location)" />
+<div class="row">
+    <img class="center-block img-thumbnail" width="650" src="@string.Format("http://maps.googleapis.com/maps/api/staticmap?center={0}&markers={0}&zoom=15&size=650x350&sensor=false", ViewBag.Location)" />
+</div>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
