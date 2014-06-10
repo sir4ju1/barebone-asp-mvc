@@ -8,7 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
     <body>
-        <header><div style="height: 100px;"></div></header>
+        <header class="container"><img class="center-block" src="../../Content/Images/Header.png" alt="" /></header>
         <div class="navbar navbar-inverse navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
@@ -22,7 +22,8 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
-                        <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
+                        <li>@Html.ActionLink("About", "Index", "About", new { area = "" }, null)</li>
+                        <li>@Html.ActionLink("Contact", "Index", "Contact", new { area = "" }, null)</li>
                     </ul>
                 </div>
             </div>
