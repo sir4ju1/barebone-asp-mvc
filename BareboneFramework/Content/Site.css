@@ -1,4 +1,4 @@
-﻿.overlay {
+.overlay {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -10,4 +10,25 @@
 .img-overlay
 {
     position: relative;
+}
+/*Overlay End*/
+
+.quick-nev-all{
+	height: 30px;
+	border: 1px dotted red;
+}
+.home-slideshow{
+	border: 1px dotted red;
+	height: 441px;
+	width: 960px;
+}
+.bottom-div > div{
+	display: inline-block;
+	border: 1px dotted red;
+	height: 250px;
+	padding: 2px;
+	vertical-align: center;
+}
+.col-center{
+  margin:0 auto;
 }
