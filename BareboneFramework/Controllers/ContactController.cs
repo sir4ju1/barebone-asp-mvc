@@ -12,6 +12,7 @@ namespace BareboneFramework.Controllers
         // GET: Contact
         public ActionResult Index()
         {
+            ViewBag.Location = "23.7819834,90.3966283";
             return View();
         }
 
