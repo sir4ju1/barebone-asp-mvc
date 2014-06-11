@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using BareboneFramework.Filters;
 
 namespace BareboneFramework
 {
@@ -14,6 +15,7 @@ namespace BareboneFramework
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+            GlobalFilters.Filters.Add(new ApplicationInfoActionFilter(), 0);
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
