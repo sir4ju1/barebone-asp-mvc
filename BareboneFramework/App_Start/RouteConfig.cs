@@ -15,7 +15,9 @@ namespace BareboneFramework
             routes.MapRoute(
                 "Gallery",
                 "Product/{action}/{id}",
-                new { Controller = "Gallery", action = "Index", id = UrlParameter.Optional });
+                new { Controller = "Gallery", action = "Index", id = UrlParameter.Optional },
+                new[] { "BareboneFramework.Controllers"}
+            );
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

@@ -1,0 +1,65 @@
+﻿@using System.Web.UI.WebControls
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("head", required: false)
+</head>
+<body>
+    <!--Header Part-->
+    <header class="container">
+        <div class="row img-overlay">
+            <img class="pull-right" src="@Url.Content(ViewBag.Background)" />
+            <div class="overlay">
+                    @if (ViewBag.IsImage)
+                    {
+                        <img class="col-md-8" src="@Url.Content(ViewBag.LogoSrc)" alt="" />
+
+                    }
+                    else
+                    {
+                        <img class="col-md-2" src="@Url.Content(ViewBag.LogoSrc)" alt="" />
+                        <h2 class="col-md-3">@Url.Content(ViewBag.Name)</h2>
+                    }
+            </div>
+        </div>
+
+
+    </header>
+
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Gallery", "Index", "Gallery", new { area = "Admin" }, null)</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container container-body">
+        @RenderBody()
+        <footer class="navbar-fixed-bottom">
+                    <hr />
+
+            <p>&copy; @DateTime.Now.Year - @ViewBag.Name</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
