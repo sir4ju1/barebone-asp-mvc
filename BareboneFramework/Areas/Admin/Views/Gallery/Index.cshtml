@@ -1,0 +1,25 @@
+﻿@model List<Base.Infrastructure.Model.GalleryItem>
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+<div class="border-shade">
+    <table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td><a href=""><i class="glyphicon glyphicon-edit"></i> Edit</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>
