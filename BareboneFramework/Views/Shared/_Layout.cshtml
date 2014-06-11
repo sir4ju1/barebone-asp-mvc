@@ -13,17 +13,17 @@
     <!--Header Part-->
     <header class="container">
         <div class="row img-overlay">
-            <img class="pull-right" src="@ViewBag.Background" />
+            <img class="pull-right" src="@Url.Content(ViewBag.Background)" />
             <div class="overlay">
                     @if (ViewBag.IsImage)
                     {
-                        <img class="col-md-8" src="@ViewBag.LogoSrc" alt="" />
+                        <img class="col-md-8" src="@Url.Content(ViewBag.LogoSrc)" alt="" />
 
                     }
                     else
                     {
-                        <img class="col-md-2" src="@ViewBag.LogoSrc" alt="" />
-                        <h2 class="col-md-3">@ViewBag.Name</h2>
+                        <img class="col-md-2" src="@Url.Content(ViewBag.LogoSrc)" alt="" />
+                        <h2 class="col-md-3">@Url.Content(ViewBag.Name)</h2>
                     }
             </div>
         </div>

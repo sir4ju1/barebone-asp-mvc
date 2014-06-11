@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Security.Policy;
+using System.Web.Mvc;
 
 namespace BareboneFramework.Filters
 {
@@ -9,9 +10,9 @@ namespace BareboneFramework.Filters
 
             filterContext.Controller.ViewBag.Title = "Home Page";
             filterContext.Controller.ViewBag.IsImage = true;
-            filterContext.Controller.ViewBag.LogoSrc = @"Content/Images/Logo.png";
+            filterContext.Controller.ViewBag.LogoSrc = "~/Content/Images/Logo.png";
             filterContext.Controller.ViewBag.Name = "Company Name";
-            filterContext.Controller.ViewBag.Background = @"Content/Images/Header-bg.png";
+            filterContext.Controller.ViewBag.Background = @"~/Content/Images/Header-bg.png";
 
         }
     }
