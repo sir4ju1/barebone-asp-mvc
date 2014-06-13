@@ -1,0 +1,23 @@
+﻿@model List<BareboneFramework.Models.ImageListViewModel>
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+<a href="@Url.Action("Create")" class="btn btn-primary">Create New Item</a>
+<br/><br/>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td><a href="@Url.Action("Edit", new {id = item.Id})"><i class="glyphicon glyphicon-edit"></i> Edit</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
