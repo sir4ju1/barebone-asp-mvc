@@ -1,3 +1,5 @@
+using Base.Infrastructure.Model;
+
 namespace Base.Infrastructure.Migrations
 {
     using System;
@@ -14,18 +16,17 @@ namespace Base.Infrastructure.Migrations
 
         protected override void Seed(Base.Infrastructure.BaseDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            ApplicationInfo app = new ApplicationInfo
+            {
+                ApplicationName = "Appliacation Name",
+                CompanyName =  "Company Name",
+                HeaderText = "",
+                LogoPath = "~/Content/Images/logo.png",
+                HeaderBackground = "~/Content/Images/Header-bg.png",
+                IsHeaderImage = true
+            };
+            context.ApplicationInfo.Add(app);
+            context.SaveChanges();
         }
     }
 }

@@ -1,19 +1,24 @@
-﻿using System.Security.Policy;
+﻿using System.Linq;
+using System.Security.Policy;
 using System.Web.Mvc;
+using BareboneFramework.Models;
+using Base.Infrastructure;
+using Microsoft.Practices.Unity;
 
 namespace BareboneFramework.Filters
 {
     public class ApplicationInfoActionFilter : ActionFilterAttribute
     {
+        [Dependency]
+        public BaseDbContext Context { private get; set; }
+
         public override void OnResultExecuting(ResultExecutingContext filterContext)
         {
-
-            filterContext.Controller.ViewBag.Title = "Home Page";
-            filterContext.Controller.ViewBag.IsImage = true;
-            filterContext.Controller.ViewBag.LogoSrc = "~/Content/Images/Logo.png";
-            filterContext.Controller.ViewBag.Name = "Company Name";
-            filterContext.Controller.ViewBag.Background = @"~/Content/Images/Header-bg.png";
-
+            if (GlobalData.AppInfo == null)
+            {
+                var info = Context.ApplicationInfo.FirstOrDefault();
+                GlobalData.AppInfo = info;
+            }
         }
     }
 }
