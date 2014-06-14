@@ -1,4 +1,5 @@
 ﻿@using System.Web.UI.WebControls
+@using BareboneFramework.Models
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,22 +14,20 @@
     <!--Header Part-->
     <header class="container">
         <div class="row img-overlay">
-            <img class="pull-right" src="@Url.Content(ViewBag.Background)" />
+            <img class="pull-right" src="@Url.Content(GlobalData.AppInfo.HeaderBackground)" />
             <div class="overlay">
-                    @if (ViewBag.IsImage)
-                    {
-                        <img class="col-md-8" src="@Url.Content(ViewBag.LogoSrc)" alt="" />
+                @if (GlobalData.AppInfo.IsHeaderImage)
+                {
+                    <img class="col-md-8" src="@Url.Content(GlobalData.AppInfo.LogoPath)" alt="" />
 
-                    }
-                    else
-                    {
-                        <img class="col-md-2" src="@Url.Content(ViewBag.LogoSrc)" alt="" />
-                        <h2 class="col-md-3">@Url.Content(ViewBag.Name)</h2>
-                    }
+                }
+                else
+                {
+                    <img class="col-md-2" src="@Url.Content(GlobalData.AppInfo.LogoPath)" alt="" />
+                    <h2 class="col-md-3">@Url.Content(GlobalData.AppInfo.HeaderText)</h2>
+                }
             </div>
         </div>
-
-
     </header>
 
     <nav class="navbar navbar-inverse navbar-static-top">
@@ -39,7 +38,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink(GlobalData.AppInfo.ApplicationName, "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -51,10 +50,11 @@
     </nav>
     <div class="container container-body">
         @RenderBody()
-        <footer class="navbar-fixed-bottom">
-                    <hr />
+        <hr />
 
-            <p>&copy; @DateTime.Now.Year - @ViewBag.Name</p>
+        <footer class="navbar-fixed-bottom">
+
+            <p>&copy; @DateTime.Now.Year - @GlobalData.AppInfo.CompanyName</p>
         </footer>
     </div>
 
@@ -62,4 +62,5 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
+
 </html>
