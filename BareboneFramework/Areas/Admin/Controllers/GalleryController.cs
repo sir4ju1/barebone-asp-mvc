@@ -51,14 +51,16 @@ namespace BareboneFramework.Areas.Admin.Controllers
                 if (image != null && image.ContentLength > 0)
                 {
                     var filename = Path.GetFileName(image.FileName);
-                    model.ImagePath = Path.Combine(Server.MapPath("~/Content/Images"), filename);
-                    image.SaveAs(model.ImagePath);
+                    var path = Path.Combine(Server.MapPath("~/Content/Images"), filename);
+                    image.SaveAs(path);
+                    model.ImagePath = string.Format("~/Content/Images/{0}", filename);
                 }
                 Mapper.CreateMap<DetailsViewModel, GalleryItem>();
                 var item = Mapper.Map<DetailsViewModel, GalleryItem>(model);
                 _context.Entry(item).State = EntityState.Added;
+                _context.SaveChanges();
             }
-            return View("Index");
+            return RedirectToAction("Index");
         }
         [HttpPost]
         public ActionResult Update(DetailsViewModel model)

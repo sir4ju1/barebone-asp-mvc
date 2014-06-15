@@ -25,11 +25,27 @@ namespace BareboneFramework.Controllers
         public async Task<ActionResult> Index()
         {
             Mapper.CreateMap<GalleryItem, ImageListViewModel>();
+            Mapper.CreateMap<GalleryItemCategory, ImageListViewModel>();
             var items = await _context.GalleryItems.ToListAsync();
-            var model = Mapper.Map<List<GalleryItem>, List<ImageListViewModel>>(items);
+            var itemcats = await _context.GalleryItemCategories.ToListAsync();
+            var model = new GalleryViewModel();
+            model.GalleryItems = Mapper.Map<List<GalleryItem>, List<ImageListViewModel>>(items);
+            model.SideMenus = Mapper.Map<List<GalleryItemCategory>, List<ImageListViewModel>>(itemcats);
+
             return View(model);
         }
+        public async Task<ActionResult> Category(int id)
+        {
+            Mapper.CreateMap<GalleryItem, ImageListViewModel>();
+            Mapper.CreateMap<GalleryItemCategory, ImageListViewModel>();
+            var items = await _context.GalleryItems.Where(c => c.CategoryId == id).ToListAsync();
+            var itemcats = await _context.GalleryItemCategories.ToListAsync();
+            var model = new GalleryViewModel();
+            model.GalleryItems = Mapper.Map<List<GalleryItem>, List<ImageListViewModel>>(items);
+            model.SideMenus = Mapper.Map<List<GalleryItemCategory>, List<ImageListViewModel>>(itemcats);
 
+            return View(model);
+        }
         public async Task<ActionResult> Details(int id)
         {
             Mapper.CreateMap<GalleryItem, DetailsViewModel>();

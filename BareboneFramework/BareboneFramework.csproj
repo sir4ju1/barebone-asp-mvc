@@ -194,6 +194,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ContactViewModel.cs" />
+    <Compile Include="Models\GalleryViewModel.cs" />
     <Compile Include="Models\DetailsViewModel.cs" />
     <Compile Include="Models\GlobalData.cs" />
     <Compile Include="Models\ImageListViewModel.cs" />
@@ -205,10 +206,12 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\E-card-jani.png" />
+    <Content Include="Content\Images\E-card-jani-bg.png" />
     <Content Include="Content\Images\Header-bg.png" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Images\Splash-Page-.png" />
     <Content Include="Content\flexslider.css" />
+    <Content Include="Content\Images\Splash-Page-bg.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\flexslider-icon.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -437,6 +440,7 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\readme.md" />
     <Content Include="Scripts\tinymce\langs\readme.md" />
     <Content Include="Areas\Admin\Views\Gallery\Create.cshtml" />
+    <Content Include="Views\Gallery\Category.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Base.Infrastructure\Base.Infrastructure.csproj">
