@@ -1,4 +1,4 @@
-﻿@model dynamic
+﻿@model List<BareboneFramework.Models.ImageListViewModel>
 
 @{
 
@@ -52,47 +52,22 @@
 </div>
 <div class="col-md-9">
     <div class="row">
-
-
-        <div class="col-md-4">
-            <div class="thumbnail">
-                <div class="caption">
-                    <h4>Thumbnail Headline</h4>
-                    <p>short thumbnail description</p>
-                    <p>
-                        <a href="@Url.Action("Details",new {id = 1})" class="label label-danger" rel="tooltip" title="Item Details">View Details</a>
-                    </p>
+        
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h4>@item.Name</h4>
+                        <p>@item.CategoryName</p>
+                        <p>
+                            <a href="@Url.Action("Details",new {id = item.Id})" class="label label-danger" rel="tooltip" title="Item Details">View Details</a>
+                        </p>
+                    </div>
+                    <img src="@item.ImagePath" alt="@item.Name">
                 </div>
-                <img src="http://lorempixel.com/400/300/sports/2/" alt="...">
             </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="thumbnail">
-                <div class="caption">
-                    <h4>Thumbnail Headline</h4>
-                    <p>short thumbnail description</p>
-                    <p>
-                        <a href="@Url.Action("Details",new {id = 2})" class="label label-danger" rel="tooltip" title="Item Details">View Details</a>
-                    </p>
-                </div>
-                <img src="http://lorempixel.com/400/300/sports/3/" alt="...">
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="thumbnail">
-                <div class="caption">
-                    <h4>Thumbnail Headline</h4>
-                    <p>short thumbnail description</p>
-                    <p>
-                        <a href="@Url.Action("Details",new {id = 3})" class="label label-danger" rel="tooltip" title="Item Details">View Details</a>
-                    </p>
-                </div>
-                <img src="http://lorempixel.com/400/300/sports/4/" alt="...">
-            </div>
-        </div>
-
+        }
     </div>
 </div>
 
