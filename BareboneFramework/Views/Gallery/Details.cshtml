@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Details";
 }
-@section scripts {    
+@section scripts {
     <link href="@Url.Content("~/Content/flexslider.css")" rel="stylesheet" />
 
     @Scripts.Render("~/bundles/flexslider")
@@ -35,7 +35,7 @@
 <div class="col-md-9">
     <div class="row">
         <div class="space-bottom">
-            <img class="center-block img-thumbnail" src="@Model.ImageLocation" width="480" />
+            <img class="center-block img-thumbnail" src="@Model.ImagePath" width="480" />
 
         </div>
     </div>
@@ -43,9 +43,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">Summary</div>
             <div class="panel-body">
-                <div class="list-group">
-                    @Html.Raw(Model.ItemInfo)
-                </div>
+                @Html.Raw(Model.Summary)
             </div>
         </div>
     </div>
@@ -53,9 +51,8 @@
         <div class="panel panel-default">
             <div class="panel-heading">Description</div>
             <div class="panel-body">
-                <div class="list-group">
-                    @Html.Raw(Model.Description)
-                </div>
+                @Html.Raw(Model.Description)
+
             </div>
         </div>
     </div>
@@ -63,42 +60,14 @@
     <section class="slider">
         <div class="flexslider carousel">
             <ul class="slides">
-                <li>
-                    <a href="#"><img src="http://lorempixel.com/400/300/sports/1/" /></a>
-                </li>
-                <li>
-                    <img src="http://lorempixel.com/400/300/sports/2/" />
-                </li>
-                <li>
-                    <img src="http://lorempixel.com/400/300/sports/3/" />
-                </li>
-                <li>
-                    <img src="http://lorempixel.com/400/300/sports/4/" />
-                </li>
-                <li>
-                    <img src="http://lorempixel.com/400/300/sports/5/" />
-                </li>
-                <li>
-                    <img src="http://lorempixel.com/400/300/sports/1/" />
-                </li>
-                <li>
-                    <img src="http://lorempixel.com/400/300/sports/2/" />
-                </li>
-                <li>
-                    <img src="http://lorempixel.com/400/300/sports/3/" />
-                </li>
-                <li>
-                    <img src="http://lorempixel.com/400/300/sports/4/" />
-                </li>
-                <li>
-                    <img src="http://lorempixel.com/400/300/sports/2/" />
-                </li>
-                <li>
-                    <img src="http://lorempixel.com/400/300/sports/1/" />
-                </li>
-                <li>
-                    <img src="http://lorempixel.com/400/300/sports/3/" />
-                </li>
+                @foreach (var item in @Model.RelatedImages)
+                {
+                    <li>
+                        <a href="@Url.Action("Details", new {id = item.Id})"><img src="@item.ImagePath" /></a>
+                    </li>
+                }
+
+                
             </ul>
         </div>
     </section>

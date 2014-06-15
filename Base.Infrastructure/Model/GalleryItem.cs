@@ -19,6 +19,7 @@ namespace Base.Infrastructure.Model
         [MaxLength(50)]
         [Index(IsUnique = true)]
         public string Name { get; set; }
+        public string Summary { get; set; }
         public string Description { get; set; }
         [Required]
         public string ImagePath { get; set; }

@@ -1,13 +1,13 @@
-﻿@model List<Base.Infrastructure.Model.GalleryItem>
+﻿@model List<BareboneFramework.Models.ImageListViewModel>
 @{
     Layout = "../Shared/_Layout.cshtml";
 }
-<div class="border-shade">
-    <table class="table table-bordered table-striped">
+<a href="@Url.Action("Create")" class="btn btn-primary">Create New Item</a>
+<br/><br/>
+<table class="table table-bordered table-striped">
     <thead>
         <tr>
             <th>Name</th>
-            <th>Description</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -16,10 +16,8 @@
         {
             <tr>
                 <td>@item.Name</td>
-                <td>@item.Description</td>
-                <td><a href=""><i class="glyphicon glyphicon-edit"></i> Edit</a></td>
+                <td><a href="@Url.Action("Update", new {id = item.Id})"><i class="glyphicon glyphicon-edit"></i> Edit</a></td>
             </tr>
         }
     </tbody>
 </table>
-</div>
