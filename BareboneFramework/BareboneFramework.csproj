@@ -169,7 +169,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="App_Data\Images\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Views\News\" />
   </ItemGroup>
