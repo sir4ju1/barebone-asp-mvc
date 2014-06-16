@@ -100,7 +100,7 @@ body {
 }*/
 
 .space-bottom {
-    margin: 0 0 15px 0;
+    margin-bottom: 25px;
 }
 
 .border-shade {
@@ -111,10 +111,10 @@ body {
 
 .footer {
     color: white;
-    min-height: 40px;
+    height: 40px;
 }
 
-.footer>p {
+.footer>.container>p {
     padding: 5px;
     line-height: 30px;
 }

@@ -42,23 +42,20 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("Category", "Index", "Category", new { area = "Admin" }, null)</li>
                     <li>@Html.ActionLink("Gallery", "Index", "Gallery", new { area = "Admin" }, null)</li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="container container-body">
+    <div class="container container-body space-bottom">
         @RenderBody()
-        <hr />
-
-        <footer class="navbar-fixed-bottom">
-
-            <p>&copy; @DateTime.Now.Year - @GlobalData.AppInfo.CompanyName</p>
-        </footer>
     </div>
-
+    <footer class="navbar-inverse footer navbar-fixed-bottom">
+        <div class="container">
+            <p>&copy; @DateTime.Now.Year - @GlobalData.AppInfo.CompanyName</p>
+        </div>
+    </footer>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

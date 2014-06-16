@@ -20,16 +20,16 @@
         <div class="row img-overlay">
             <img class="pull-right" src="@Url.Content(GlobalData.AppInfo.HeaderBackground)" />
             <div class="overlay">
-                    @if (GlobalData.AppInfo.IsHeaderImage)
-                    {
-                        <img class="col-md-8" src="@Url.Content(GlobalData.AppInfo.LogoPath)" alt="" />
+                @if (GlobalData.AppInfo.IsHeaderImage)
+                {
+                    <img class="col-md-8" src="@Url.Content(GlobalData.AppInfo.LogoPath)" alt="" />
 
-                    }
-                    else
-                    {
-                        <img class="col-md-2" src="@Url.Content(GlobalData.AppInfo.LogoPath)" alt="" />
-                        <h2 class="col-md-3">@Url.Content(GlobalData.AppInfo.HeaderText)</h2>
-                    }
+                }
+                else
+                {
+                    <img class="col-md-2" src="@Url.Content(GlobalData.AppInfo.LogoPath)" alt="" />
+                    <h2 class="col-md-3">@Url.Content(GlobalData.AppInfo.HeaderText)</h2>
+                }
             </div>
         </div>
 
@@ -55,13 +55,15 @@
             </div>
         </div>
     </nav>
-    <div class="container">
+    <div class="container space-bottom">
         @RenderBody()
 
     </div>
-    <hr />
-    <footer class="navbar-inverse footer">
-        <p class="container">&copy; @DateTime.Now.Year - @GlobalData.AppInfo.CompanyName</p>
+
+    <footer class="navbar-inverse footer navbar-fixed-bottom">
+        <div class="container">
+            <p>&copy; @DateTime.Now.Year - @GlobalData.AppInfo.CompanyName</p>
+        </div>
     </footer>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
@@ -69,4 +71,5 @@
 
     @RenderSection("scripts", required: false)
 </body>
+
 </html>
