@@ -1,51 +1,90 @@
 ﻿@model BareboneFramework.Models.ContactViewModel
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = "Contact Us";
 }
+<div class="col-md-9 panel panel-default" id="">
+    <div id="contact-form">
+    <h3>Get In Touch With Us</h3>
+        @using (Html.BeginForm("SendMail", "Contact", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            @Html.ValidationSummary(true)
+            <div class="form-group">
+                @Html.LabelFor(model => model.FirstName, "First Name:", new { @class = "control-label col-md-2" })
+                <div class="col-md-5">
+                    @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                </div>
 
-@using (Html.BeginForm("SendMail", "Contact", FormMethod.Post, new { @class = "form-horizontal" }))
-{
-    @Html.ValidationSummary(true)
-    <div class="form-group">
-        @Html.LabelFor(model => model.FirstName, "First Name:", new { @class = "control-label col-md-2" })
-        <div class="col-md-5">
-            @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
-        </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.LastName, "Last Name:", new { @class = "control-label col-md-2" })
+                <div class="col-md-5">
+                    @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, "Email:", new { @class = "control-label col-md-2" })
+                <div class="col-md-5">
+                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Comment, "Comments:", new { @class = "control-label col-md-2" })
+                <div class="col-md-5">
+                    @Html.TextAreaFor(model => model.Comment, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-7 pull-right">
+                    <input class="btn btn-primary" type="submit" value="submit" />
+                    <input class="btn btn-info" type="reset" value="reset" />
+                </div>
+            </div>
+        }</div>
+    <hr />
 
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.LastName, "Last Name:", new { @class = "control-label col-md-2" })
-        <div class="col-md-5">
-            @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+        <div class="row" id="head-office" style="padding:0 0 0 20px;">
+            <address>
+                <strong>Head Office</strong><br />
+                KA-227 Progoti Shoroni, (Left Side of Jamuna Fu. Park)<br />
+                Kuril, Vatara, Dhaka-1229, Bangladesh.<br />
+                Tel: +88 02 8414520, 8413928<br />
+                Cell: 01711 698066, Fax: 88 02 8416169<br />
+                E-mail: headoffice@janitrading.com
+            </address>
+            <img class="img-thumbnail" width="650" src="@string.Format("http://maps.googleapis.com/maps/api/staticmap?center={0}&markers={0}&zoom=15&size=650x350&sensor=false", ViewBag.Location)" />
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Email, "Email:", new { @class = "control-label col-md-2" })
-        <div class="col-md-5">
-            @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Comment, "Comments:", new { @class = "control-label col-md-2" })
-        <div class="col-md-5">
-            @Html.TextAreaFor(model => model.Comment, new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-md-7 pull-right">
-            <input class="btn btn-primary" type="submit" value="submit" />
-            <input class="btn btn-info" type="reset" value="reset" />
-        </div>
-    </div>
-}
+    <hr/>
 
-<div class="row">
-    <img class="center-block img-thumbnail" width="650" src="@string.Format("http://maps.googleapis.com/maps/api/staticmap?center={0}&markers={0}&zoom=15&size=650x350&sensor=false", ViewBag.Location)" />
+    <div class="row" id="show-room" style="padding:0 0 0 20px;">
+        <address>
+            <strong>Show Room</strong><br />
+            60 Kazi Nazrul Islam Avenue, Firmgate, Dhaka.<br />
+            Cell: 01711 698066, 01711 203163<br />
+            E-mail: sales@janitrading.com
+        </address>
+        <img class="img-thumbnail" width="650" src="@string.Format("http://maps.googleapis.com/maps/api/staticmap?center={0}&markers={0}&zoom=15&size=650x350&sensor=false", ViewBag.Location)" />
+    </div>
+    </div>
+<div class="col-md-3">
+    <div class="panel panel-default">
+        <div class="panel-heading">Contuct Us</div>
+        <div class="panel-body">
+            <div class="list-group">
+                <ul>
+                    <li><a href="#contact-form">Contact Us</a></li>
+                    <li><a href="#head-office">Head Office</a></li>
+                    <li><a href="#show-room">Show Room</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
 </div>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
