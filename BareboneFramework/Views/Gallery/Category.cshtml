@@ -39,17 +39,7 @@
     </script>
 }
 <div class="col-md-3">
-    <div class="panel panel-default">
-        <div class="panel-heading">Categories</div>
-        <div class="panel-body">
-            <div class="list-group">
-                @foreach (var item in Model.SideMenus)
-                {
-                    <strong><a href="@Url.Action("Category", new { id=item.Id })" class="list-group-item">@item.Name</a></strong>
-                }
-            </div>    
-        </div>
-    </div>
+    @Html.Partial("_SideMenu", Model.SideMenus)
 </div>
 <div class="col-md-9">
     <div class="row">

@@ -22,15 +22,7 @@
 }
 
 <div class="col-md-3">
-    <div class="panel panel-default">
-        <div class="panel-heading">Categories</div>
-        <div class="panel-body">
-            <div class="list-group">
-                <a href="#" class="list-group-item">Category 1</a>
-                <a href="#" class="list-group-item">Category 2</a>
-            </div>
-        </div>
-    </div>
+    @Html.Partial("_SideMenu", Model.SideMenus)
 </div>
 <div class="col-md-9">
     <div class="row">

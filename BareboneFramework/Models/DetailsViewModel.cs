@@ -16,6 +16,7 @@ namespace BareboneFramework.Models
         public string ImagePath { get; set; }
 
         public List<ImageListViewModel> RelatedImages { get; set; }
+        public List<ImageListViewModel> SideMenus { get; set; }
         public List<SelectListItem> ListItems { get; set; } 
 
     }

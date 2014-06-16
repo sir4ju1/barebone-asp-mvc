@@ -169,7 +169,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="App_Data\Images\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Views\News\" />
   </ItemGroup>
@@ -445,6 +445,7 @@
     <Content Include="Scripts\tinymce\langs\readme.md" />
     <Content Include="Areas\Admin\Views\Gallery\Create.cshtml" />
     <Content Include="Views\Gallery\Category.cshtml" />
+    <Content Include="Views\Gallery\_SideMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Base.Infrastructure\Base.Infrastructure.csproj">
