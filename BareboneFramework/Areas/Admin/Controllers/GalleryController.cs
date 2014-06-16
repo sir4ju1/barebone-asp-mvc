@@ -51,9 +51,9 @@ namespace BareboneFramework.Areas.Admin.Controllers
                 if (image != null && image.ContentLength > 0)
                 {
                     var filename = Path.GetFileName(image.FileName);
-                    var path = Path.Combine(Server.MapPath("~/Content/Images"), filename);
+                    var path = Path.Combine(Server.MapPath("~/App_Data/Images"), filename);
                     image.SaveAs(path);
-                    model.ImagePath = string.Format("~/Content/Images/{0}", filename);
+                    model.ImagePath = string.Format("~/App_Data/Images/{0}", filename);
                 }
                 Mapper.CreateMap<DetailsViewModel, GalleryItem>();
                 var item = Mapper.Map<DetailsViewModel, GalleryItem>(model);

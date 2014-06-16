@@ -48,9 +48,9 @@ namespace BareboneFramework.Areas.Admin.Controllers
             if (file != null && file.ContentLength > 0)
             {
                 var filename = Path.GetFileName(file.FileName);
-                filePath = Path.Combine(Server.MapPath("~/Content/Images"), filename);
+                filePath = Path.Combine(Server.MapPath("~/App_Data/Images"), filename);
                 file.SaveAs(filePath);
-                filePath = string.Format("~/Content/Images/{0}", filename);
+                filePath = string.Format("~/App_Data/Images/{0}", filename);
             }
             return filePath;
         }

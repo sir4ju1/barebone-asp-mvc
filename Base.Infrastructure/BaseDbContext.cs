@@ -7,7 +7,7 @@ namespace Base.Infrastructure
     {
         public BaseDbContext():base("name=DefaultConnection")
         {
-           Database.SetInitializer<BaseDbContext>(new CreateDatabaseIfNotExists<BaseDbContext>()); 
+           Database.SetInitializer<BaseDbContext>(null); 
         }
 
         public DbSet<GalleryItemCategory> GalleryItemCategories { get; set; }
