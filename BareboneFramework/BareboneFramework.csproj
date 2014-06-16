@@ -445,6 +445,7 @@
     <Content Include="Scripts\tinymce\langs\readme.md" />
     <Content Include="Areas\Admin\Views\Gallery\Create.cshtml" />
     <Content Include="Views\Gallery\Category.cshtml" />
+    <Content Include="Views\Gallery\_SideMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Base.Infrastructure\Base.Infrastructure.csproj">
