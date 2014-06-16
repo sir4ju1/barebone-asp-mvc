@@ -17,6 +17,28 @@ body {
     background: linear-gradient(45deg, rgba(255,255,255,1) 0%,rgba(243,243,243,1) 50%,rgba(237,237,237,1) 51%,rgba(255,255,255,1) 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
+/*Menu bar*/
+.navbar {
+    position: relative;
+    min-height: 40px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+}
+
+.navbar-nav > li > a {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    line-height: 25px;
+    font-weight: bold;
+}
+
+.navbar-brand {
+    float: left;
+    padding: 8px;
+    font-size: 18px;
+    line-height: 25px;
+    height: 20px;
+}
 
 .container-body {
     padding: 15px;
