@@ -92,7 +92,10 @@ body {
     background: linear-gradient(#ffffff, #e0e0e0); /* Standard syntax (must be last) */
 }
 
-
+.gallery-thumbnail {
+    width:auto;
+    height:150px !important;
+}
 /*Slide*/
 /*.slide {
     width: 960px;

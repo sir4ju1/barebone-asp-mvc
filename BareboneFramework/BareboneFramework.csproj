@@ -169,8 +169,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\Images\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Public\Images\" />
     <Folder Include="Views\News\" />
   </ItemGroup>
   <ItemGroup>
