@@ -59,7 +59,9 @@ namespace BareboneFramework.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Entry(model).State = EntityState.Modified;
+                Mapper.CreateMap<DetailsViewModel, GalleryItemCategory>();
+                var item = Mapper.Map<DetailsViewModel, GalleryItemCategory>(model);
+                _context.Entry(item).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
             }
             return RedirectToAction("Index");

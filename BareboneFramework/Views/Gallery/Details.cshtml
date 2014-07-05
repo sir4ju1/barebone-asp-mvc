@@ -35,7 +35,8 @@
         <div class="panel panel-default">
             <div class="panel-heading" ><strong>Summary</strong></div>
             <div class="panel-body">
-                @Html.Raw(Model.Summary)
+                <strong>Product Name</strong>@Html.Raw(Model.Summary)
+                <strong>Model </strong><span class="text-danger">@Html.Raw(Model.ItemCode)</span>
             </div>
         </div>
     </div>
@@ -54,7 +55,7 @@
             <ul class="slides">
                 @foreach (var item in @Model.RelatedImages)
                 {
-                    <li>
+                    <li class="thumbnail">
                         <a href="@Url.Action("Details", new {id = item.Id})"><img src="@Url.Content(item.ImagePath)" /></a>
                     </li>
                 }
