@@ -52,6 +52,7 @@
     <Compile Include="Model\ApplicationInfo.cs" />
     <Compile Include="Model\GalleryItem.cs" />
     <Compile Include="Model\GalleryItemCategory.cs" />
+    <Compile Include="Model\News.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

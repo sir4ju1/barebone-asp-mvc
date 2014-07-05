@@ -184,10 +184,12 @@
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\GalleryController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\SendMailController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Filters\ApplicationInfoActionFilter.cs" />
@@ -229,6 +231,8 @@
     <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Category\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Category\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\News\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\News\Create.cshtml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <Content Include="fonts\flexslider-icon.eot" />
     <Content Include="fonts\flexslider-icon.ttf" />
@@ -446,6 +450,7 @@
     <Content Include="Areas\Admin\Views\Gallery\Create.cshtml" />
     <Content Include="Views\Gallery\Category.cshtml" />
     <Content Include="Views\Gallery\_SideMenu.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Base.Infrastructure\Base.Infrastructure.csproj">
@@ -471,7 +476,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>18794</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

@@ -1,0 +1,32 @@
+﻿@model Base.Infrastructure.Model.News
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Create", "News", FormMethod.Post, new { EncType = "multipart/form-data", @class = "form-horizontal" }))
+{
+    @Html.ValidationSummary(true)
+    <div class="form-group">
+        @Html.LabelFor(model => model.NewsHeadline, "Headline:", new { @class = "control-label col-md-2" })
+        <div class="col-md-5">
+            @Html.HiddenFor(model => model.Id)
+            @Html.TextBoxFor(model => model.NewsHeadline, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.NewsHeadline, "", new { @class = "text-danger" })
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.NewsDetails, "News Details:", new { @class = "control-label col-md-2" })
+        <div class="col-md-5">
+            @Html.TextAreaFor(model => model.NewsDetails, new { @class = "form-control" })
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="form-group col-md-7 pull-right">
+            <input class="btn btn-primary" type="submit" value="submit" />
+            <input class="btn btn-info" type="reset" value="reset" />
+        </div>
+    </div>
+}

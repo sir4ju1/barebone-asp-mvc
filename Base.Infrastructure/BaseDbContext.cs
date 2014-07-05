@@ -12,6 +12,7 @@ namespace Base.Infrastructure
 
         public DbSet<GalleryItemCategory> GalleryItemCategories { get; set; }
         public DbSet<GalleryItem> GalleryItems { get; set; }
+        public DbSet<News> News { get; set; }
 
         public DbSet<ApplicationInfo> ApplicationInfo { get; set; }  
     }

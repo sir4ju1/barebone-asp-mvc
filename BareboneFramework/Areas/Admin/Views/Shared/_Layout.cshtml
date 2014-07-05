@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <title>@ViewBag.Title - @GlobalData.AppInfo.CompanyName</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @RenderSection("head", required: false)
@@ -44,6 +44,7 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Category", "Index", "Category", new { area = "Admin" }, null)</li>
                     <li>@Html.ActionLink("Gallery", "Index", "Gallery", new { area = "Admin" }, null)</li>
+                    <li>@Html.ActionLink("News", "Index", "News", new { area = "Admin" }, null)</li>
                 </ul>
             </div>
         </div>
