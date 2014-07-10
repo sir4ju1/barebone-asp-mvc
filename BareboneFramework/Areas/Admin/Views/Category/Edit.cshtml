@@ -7,7 +7,7 @@
 {
     @Html.ValidationSummary(true)
     <div class="form-group">
-        @Html.LabelFor(model => model.Name, "Item Name:", new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.Name, "Category Name:", new { @class = "control-label col-md-2" })
         <div class="col-md-5">
             @Html.HiddenFor(model => model.Id)
             @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
