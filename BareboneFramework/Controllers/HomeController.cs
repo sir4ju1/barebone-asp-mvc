@@ -1,16 +1,25 @@
-﻿using System;
+﻿using Base.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace BareboneFramework.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        private BaseDbContext _context;
+        public HomeController(BaseDbContext context)
         {
-           return View();
+            _context = context;
+        }
+        public async Task<ActionResult> Index()
+        {
+            var model = await _context.News.OrderByDescending(o => o.PublishDate).Take(5).ToListAsync();
+            return View(model);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model BareboneFramework.Models.DetailsViewModel
+﻿@model Base.Infrastructure.Model.News
 @{
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
@@ -49,54 +49,26 @@
     </script>
 }
 
-@using (Html.BeginForm("Create", "Gallery", FormMethod.Post, new { EncType = "multipart/form-data", @class = "form-horizontal" }))
+@using (Html.BeginForm("Create", "News", FormMethod.Post, new { EncType = "multipart/form-data", @class = "form-horizontal" }))
 {
     @Html.ValidationSummary(true)
     <div class="form-group">
-        @Html.LabelFor(model => model.Name, "Item Name:", new { @class = "control-label col-md-2" })
-        <div class="col-md-5">
+        @Html.LabelFor(model => model.NewsHeadline, "Headline:", new { @class = "control-label col-md-2" })
+        <div class="col-md-9">
             @Html.HiddenFor(model => model.Id)
-            @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(model => model.NewsHeadline, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.NewsHeadline, "", new { @class = "text-danger" })
         </div>
 
     </div>
-    //item code
+
     <div class="form-group">
-        @Html.LabelFor(model => model.ItemCode, "Item Code:", new { @class = "control-label col-md-2" })
-        <div class="col-md-5">
-            @Html.TextBoxFor(model => model.ItemCode, new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.ItemCode, "", new { @class = "text-danger" })
+        @Html.LabelFor(model => model.NewsDetails, "News Details:", new { @class = "control-label col-md-2" })
+        <div class="col-md-9">
+            @Html.TextAreaFor(model => model.NewsDetails, new { @class = "form-control richtextarea" })
         </div>
 
     </div>
-    <div class="form-group">
-        @Html.Label("Category", new { @class = "control-label col-md-2" })
-        <div class="col-md-5">
-            @Html.DropDownListFor(model => model.CategoryId, Model.ListItems, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Summary, "Summary:", new { @class = "control-label col-md-2" })
-        <div class="col-md-7">
-            @Html.TextAreaFor(model => model.Summary, new { @class = "form-control richtextarea" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Description, "Description:", new { @class = "control-label col-md-2" })
-        <div class="col-md-7">
-            @Html.TextAreaFor(model => model.Description, new { @class = "form-control richtextarea" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.Label("Image:", new { @class = "control-label col-md-2" })
-        <div class="col-md-5">
-            <input type="file" name="image" id="image" class="form-control" />
-            @Html.HiddenFor(model => model.ImagePath)
-        </div>
-    </div>
-
-
     <div class="row">
         <div class="form-group col-md-7 pull-right">
             <input class="btn btn-primary" type="submit" value="submit" />

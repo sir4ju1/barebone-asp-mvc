@@ -17,8 +17,10 @@ namespace Base.Infrastructure.Model
         public virtual GalleryItemCategory Category { get; set; }
         [Required]
         [MaxLength(50)]
-        [Index(IsUnique = true)]
-        public string Name { get; set; }
+        public string Name { get; set; }        
+        [MaxLength(25)]
+        [Index(IsUnique=true)]
+        public string ItemCode { get; set; }
         public string Summary { get; set; }
         public string Description { get; set; }
         [Required]

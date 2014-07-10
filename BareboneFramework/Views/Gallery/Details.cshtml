@@ -13,7 +13,7 @@
             $('.flexslider').flexslider({
                 animation: "slide",
                 animationLoop: true,
-                itemWidth: 120,
+                itemWidth: 150,
                 itemMargin: 5,
                 pausePlay: true
             });
@@ -35,7 +35,8 @@
         <div class="panel panel-default">
             <div class="panel-heading" ><strong>Summary</strong></div>
             <div class="panel-body">
-                @Html.Raw(Model.Summary)
+                <strong>Product Name</strong>@Html.Raw(Model.Summary)
+                <strong>Model </strong><span class="text-danger">@Html.Raw(Model.ItemCode)</span>
             </div>
         </div>
     </div>
@@ -55,11 +56,12 @@
                 @foreach (var item in @Model.RelatedImages)
                 {
                     <li>
-                        <a href="@Url.Action("Details", new {id = item.Id})"><img src="@Url.Content(item.ImagePath)" /></a>
+                        <a href="@Url.Action("Details", new {id = item.Id})" class="thumbnail"><img src="@Url.Content(item.ImagePath)" class="gallery-thumbnail" /></a>
+                        <div>@item.Name</div>
                     </li>
                 }
 
-                
+
             </ul>
         </div>
     </section>

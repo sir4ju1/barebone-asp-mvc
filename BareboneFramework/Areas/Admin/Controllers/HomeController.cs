@@ -12,6 +12,7 @@ using Base.Infrastructure.Model;
 
 namespace BareboneFramework.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class HomeController : Controller
     {
         private BaseDbContext _context;
@@ -36,8 +37,8 @@ namespace BareboneFramework.Areas.Admin.Controllers
                 _context.Entry(model).State = EntityState.Modified;
                 _context.SaveChanges();
                 GlobalData.AppInfo = model;
-            }             
-            
+            }
+
 
             return View(model);
         }
@@ -48,9 +49,9 @@ namespace BareboneFramework.Areas.Admin.Controllers
             if (file != null && file.ContentLength > 0)
             {
                 var filename = Path.GetFileName(file.FileName);
-                filePath = Path.Combine(Server.MapPath("~/App_Data/Images"), filename);
+                filePath = Path.Combine(Server.MapPath("~/Public/Images"), filename);
                 file.SaveAs(filePath);
-                filePath = string.Format("~/App_Data/Images/{0}", filename);
+                filePath = string.Format("~/Public/Images/{0}", filename);
             }
             return filePath;
         }

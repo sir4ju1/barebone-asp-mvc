@@ -12,6 +12,10 @@ namespace BareboneFramework.Models
         [AllowHtml]
         public string Summary { get; set; }
         [AllowHtml]
+        public string ItemCode { get; set; }
+        [AllowHtml]
+        public string CategoryCode { get; set; }
+        [AllowHtml]
         public string Description { get; set; }
         public string ImagePath { get; set; }
 

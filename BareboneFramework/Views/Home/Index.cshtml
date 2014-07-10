@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<Base.Infrastructure.Model.News>
+@{
     ViewBag.Title = "Home";
 }
 
@@ -37,36 +38,30 @@
     </div>
 </div>
 <div class="row border-shade">
-    <div class="col-md-4" style="height: 300px;">
+    <div class="col-md-6">
 
-        <h3 style="text-align:center;font-weight:bold;font-size:10pt;"><span><font><font class="">Hot News</font></font></span></h3>
-        <div class="ja-box-ct clearfix" style="text-align:left;">
+        <h4><span>Hot News</span></h4>
+        <div style="text-align:left;">
             <ul>
-                <li id="contactSalesman" class="homeellipsis"><a href="/news/newsdetail.asp?id=74" target="_blank" title="Clifford Ya'an"><font><font>Clifford Ya'an</font></font></a></li>
-                <li id="contactSalesman" class="homeellipsis"><a href="/news/newsdetail.asp?id=72" target="_blank" title="Turkey promoted the world's eighth-largest steel producer"><font><font class="">Turkey promoted the world's eighth-largest steel producer</font></font></a></li>
-                <li id="contactSalesman" class="homeellipsis"><a href="/news/newsdetail.asp?id=71" target="_blank" title="Expo China Science and Technology Hardware City hotel supplies sales Huan"><font><font>Expo China Science and Technology Hardware City hotel supplies sales Huan</font></font></a></li>
-                <li id="contactSalesman" class="homeellipsis"><a href="/news/newsdetail.asp?id=63" target="_blank" title="Guangzhou Jian Jun kitchen refrigeration equipment all my colleagues I wish you a happy New Year 2013!"><font><font>Guangzhou Jian Jun kitchen refrigeration equipment all my colleagues I wish you a happy New Year 2013!</font></font></a></li>
-                <li id="contactSalesman" class="homeellipsis"><a href="/news/newsdetail.asp?id=55" target="_blank" title="Brazil to promote the metal kitchenware product technology and qualified certification requirements"><font><font>Brazil to promote the metal kitchenware product technology and qualified certification requirements</font></font></a></li>
+                @foreach (var item in Model)
+                {
+                    <li style="margin:15px;">
+                        <a href="/News/">@item.NewsHeadline</a>
+                    </li>
+                }
             </ul>
         </div>
-        <p align="right"><a href="/news/newslist.asp"><font><font>More &gt;&gt;&gt;</font></font></a></p>
+        <p align="right"><a href="/News/"><font><font>More &gt;&gt;&gt;</font></font></a></p>
 
 
     </div>
-    <div class="col-md-4 border-shade2" style="height: 300px;">
 
-    </div>
-
-    <div class="col-md-4 border-shade2" style="height: 300px;">
-
-        <div class="ja-moduletable moduletable  clearfix" id="Mod19">
-            <h4><span>Sales Network</span></h4>
-            <div class="ja-box-ct clearfix">
-
-                <a href="/about.asp?id=44"><img src="http://www.junjianchina.com/images/market.gif"></a>
-
-
-            </div>
+    <div class="col-md-6 border-shade2" style="height: 300px;">
+        <h4><span>Sales Location</span></h4>
+        <div>
+            <a href="/Contact#show-room" class="">
+                <img height="200" width="400" class="img-thumbnail center-block" alt="Home Page Images" src="" />
+            </a>
         </div>
 
 

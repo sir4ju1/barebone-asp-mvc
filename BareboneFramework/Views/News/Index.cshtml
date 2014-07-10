@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Base.Infrastructure.Model.News>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    <div>
+        <h3>News And Media Section</h3>
+    </div>
+    <div>
+        <div>
+            @foreach (var item in Model)
+            {
+                <article class="panel panel-body">
+                    <div>
+                    <blockquote><a href="@Url.Action("Details",new {id=item.Id})"><h4><strong>@item.NewsHeadline</strong></h4></a><footer>Published @item.PublishDate</footer></blockquote></div>                    
+                    <hr />
+                    <p>@item.NewsDetails</p>
+                </article>
+
+            }
+        </div>
+    </div>
+</div>
+
+

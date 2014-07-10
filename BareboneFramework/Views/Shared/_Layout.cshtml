@@ -1,5 +1,6 @@
 ﻿@using System.Web.Configuration
 @using BareboneFramework.Models
+@using Microsoft.AspNet.Identity
 @{
     ViewBag.AddthisId = WebConfigurationManager.AppSettings.Get("AddThisId");
 }
@@ -9,7 +10,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <title>@ViewBag.Title - @GlobalData.AppInfo.CompanyName</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @RenderSection("head", required: false)
@@ -20,16 +21,16 @@
         <div class="row img-overlay">
             <img class="pull-right" src="@Url.Content(GlobalData.AppInfo.HeaderBackground)" />
             <div class="overlay">
-                    @if (GlobalData.AppInfo.IsHeaderImage)
-                    {
-                        <img class="col-md-8" src="@Url.Content(GlobalData.AppInfo.LogoPath)" alt="" />
+                @if (GlobalData.AppInfo.IsHeaderImage)
+                {
+                    <img class="col-md-8" src="@Url.Content(GlobalData.AppInfo.LogoPath)" alt="" />
 
-                    }
-                    else
-                    {
-                        <img class="col-md-2" src="@Url.Content(GlobalData.AppInfo.LogoPath)" alt="" />
-                        <h2 class="col-md-3">@Url.Content(GlobalData.AppInfo.HeaderText)</h2>
-                    }
+                }
+                else
+                {
+                    <img class="col-md-2" src="@Url.Content(GlobalData.AppInfo.LogoPath)" alt="" />
+                    <h2 class="col-md-3">@Url.Content(GlobalData.AppInfo.HeaderText)</h2>
+                }
             </div>
         </div>
 
@@ -49,19 +50,42 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Products", "Index", "Gallery", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("News", "Index", "News", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("About", "Index", "About", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("Contact", "Index", "Contact", new { area = "" }, null)</li>
                 </ul>
+                @if (Request.IsAuthenticated)
+                {
+                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Home", routeValues: new {area = "Admin"}, htmlAttributes: new { title = "Manage" })
+                            </li>
+                            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+                        </ul>
+                    }
+                }
+                else
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                    </ul>
+                }
             </div>
         </div>
     </nav>
-    <div class="container">
+    <div class="container space-bottom">
         @RenderBody()
 
     </div>
-    <hr />
-    <footer class="navbar-inverse footer">
-        <p class="container">&copy; @DateTime.Now.Year - @GlobalData.AppInfo.CompanyName</p>
+
+    <footer class="navbar-inverse footer navbar-fixed-bottom">
+        <div class="container">
+            <p>&copy; @DateTime.Now.Year - @GlobalData.AppInfo.CompanyName</p>
+        </div>
     </footer>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
@@ -69,4 +93,5 @@
 
     @RenderSection("scripts", required: false)
 </body>
+
 </html>

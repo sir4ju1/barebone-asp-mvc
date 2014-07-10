@@ -1,0 +1,23 @@
+﻿@model List<Base.Infrastructure.Model.News>
+    @{
+        Layout = "../Shared/_Layout.cshtml";
+    }
+    <a href="@Url.Action("Create")" class="btn btn-primary">Create News Item</a>
+    <br /><br />
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Headline</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.NewsHeadline</td>
+                    <td><a href="@Url.Action("Edit", new {id = item.Id})"><i class="glyphicon glyphicon-edit"></i> Edit</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>

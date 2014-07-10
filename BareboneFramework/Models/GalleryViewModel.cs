@@ -8,6 +8,6 @@ namespace BareboneFramework.Models
     public class GalleryViewModel
     {
         public List<ImageListViewModel> SideMenus { get; set; }
-        public List<ImageListViewModel> GalleryItems { get; set; }
+        public PagedList.IPagedList<ImageListViewModel> GalleryItems { get; set; }
     }
 }

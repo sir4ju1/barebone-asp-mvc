@@ -1,11 +1,12 @@
 ﻿@using System.Web.UI.WebControls
 @using BareboneFramework.Models
+@using Microsoft.AspNet.Identity
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <title>@ViewBag.Title - @GlobalData.AppInfo.CompanyName</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @RenderSection("head", required: false)
@@ -42,23 +43,33 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Application", "Index", "Home", new { area = "Admin" }, null)</li>
                     <li>@Html.ActionLink("Category", "Index", "Category", new { area = "Admin" }, null)</li>
                     <li>@Html.ActionLink("Gallery", "Index", "Gallery", new { area = "Admin" }, null)</li>
+                    <li>@Html.ActionLink("News", "Index", "News", new { area = "Admin" }, null)</li>
                 </ul>
+                @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Home", routeValues: new { area = "Admin" }, htmlAttributes: new { title = "Manage" })
+                        </li>
+                        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+                    </ul>
+                }
             </div>
         </div>
     </nav>
-    <div class="container container-body">
+    <div class="container container-body space-bottom">
         @RenderBody()
-        <hr />
-
-        <footer class="navbar-fixed-bottom">
-
-            <p>&copy; @DateTime.Now.Year - @GlobalData.AppInfo.CompanyName</p>
-        </footer>
     </div>
-
+    <footer class="navbar-inverse footer navbar-fixed-bottom">
+        <div class="container">
+            <p>&copy; @DateTime.Now.Year - @GlobalData.AppInfo.CompanyName</p>
+        </div>
+    </footer>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
