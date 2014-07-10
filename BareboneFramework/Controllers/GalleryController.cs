@@ -58,7 +58,7 @@ namespace BareboneFramework.Controllers
 
             var item = await _context.GalleryItems.FindAsync(id);
             var model = Mapper.Map<GalleryItem, DetailsViewModel>(item);
-            model.RelatedImages = await _context.GalleryItems.Where(g => g.CategoryId == model.CategoryId).Select(i => new ImageListViewModel { Id = i.Id, ImagePath = i.ImagePath }).ToListAsync();
+            model.RelatedImages = await _context.GalleryItems.Where(g => g.CategoryId == model.CategoryId).Select(i => new ImageListViewModel { Id = i.Id, Name = i.Name, ImagePath = i.ImagePath }).ToListAsync();
             model.SideMenus = Mapper.Map<List<GalleryItemCategory>, List<ImageListViewModel>>(itemcats);
 
 

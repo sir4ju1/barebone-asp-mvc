@@ -13,7 +13,7 @@
             $('.flexslider').flexslider({
                 animation: "slide",
                 animationLoop: true,
-                itemWidth: 120,
+                itemWidth: 150,
                 itemMargin: 5,
                 pausePlay: true
             });
@@ -55,12 +55,13 @@
             <ul class="slides">
                 @foreach (var item in @Model.RelatedImages)
                 {
-                    <li class="thumbnail">
-                        <a href="@Url.Action("Details", new {id = item.Id})"><img src="@Url.Content(item.ImagePath)" /></a>
+                    <li>
+                        <a href="@Url.Action("Details", new {id = item.Id})" class="thumbnail"><img src="@Url.Content(item.ImagePath)" class="gallery-thumbnail" /></a>
+                        <div>@item.Name</div>
                     </li>
                 }
 
-                
+
             </ul>
         </div>
     </section>
