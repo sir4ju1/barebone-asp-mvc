@@ -1,0 +1,14 @@
+﻿@model Base.Infrastructure.Model.News
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div>
+        <blockquote>@Model.NewsHeadline<footer>Published @Model.PublishDate</footer></blockquote>
+    </div>
+    <div>
+        <p>@Model.NewsDetails</p>
+    </div>
+</div>
+
+

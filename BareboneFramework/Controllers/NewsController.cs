@@ -22,5 +22,10 @@ namespace BareboneFramework.Controllers
             var model = await _context.News.ToListAsync();
             return View(model);
         }
+        public async Task<ActionResult> Details(int id)
+        {
+            var model = await _context.News.FindAsync(id);
+            return View(model);
+        }
     }
 }

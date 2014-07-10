@@ -121,23 +121,4 @@ body {
     padding: 5px;
     line-height: 30px;
 }
-.panel {
-    margin-bottom: 20px;
-    background-color: #FFF;
-    border: 1px solid #DDD;
-    border-radius: 4px;
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05);
-}
-.panel-heading {
-    padding: 10px;
-    background-color: #F5F5F5;
-    border-bottom: 1px solid #DDD;
-    border-top-right-radius: 3px;
-    border-top-left-radius: 3px;
-}
-.panel-body {
-    padding: 10px;
-}
-#showroom{
-    padding:30px;
-}
+

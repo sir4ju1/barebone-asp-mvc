@@ -49,7 +49,7 @@
     </script>
 }
 
-@using (Html.BeginForm("Create", "News", FormMethod.Post, new { EncType = "multipart/form-data", @class = "form-horizontal" }))
+@using (Html.BeginForm("Edit", "News", FormMethod.Post, new { EncType = "multipart/form-data", @class = "form-horizontal" }))
 {
     @Html.ValidationSummary(true)
     <div class="form-group">
