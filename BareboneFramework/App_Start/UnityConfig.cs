@@ -1,8 +1,7 @@
 using System;
 using Microsoft.Practices.Unity;
-using Microsoft.Practices.Unity.Configuration;
 
-namespace BareboneFramework.App_Start
+namespace BareboneFramework
 {
     /// <summary>
     /// Specifies the Unity configuration for the main container.

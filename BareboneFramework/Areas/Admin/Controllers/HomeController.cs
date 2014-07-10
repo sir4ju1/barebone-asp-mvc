@@ -12,6 +12,7 @@ using Base.Infrastructure.Model;
 
 namespace BareboneFramework.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class HomeController : Controller
     {
         private BaseDbContext _context;
@@ -36,8 +37,8 @@ namespace BareboneFramework.Areas.Admin.Controllers
                 _context.Entry(model).State = EntityState.Modified;
                 _context.SaveChanges();
                 GlobalData.AppInfo = model;
-            }             
-            
+            }
+
 
             return View(model);
         }

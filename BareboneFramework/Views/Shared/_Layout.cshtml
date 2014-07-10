@@ -1,5 +1,6 @@
 ﻿@using System.Web.Configuration
 @using BareboneFramework.Models
+@using Microsoft.AspNet.Identity
 @{
     ViewBag.AddthisId = WebConfigurationManager.AppSettings.Get("AddThisId");
 }
@@ -53,6 +54,26 @@
                     <li>@Html.ActionLink("About", "Index", "About", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("Contact", "Index", "Contact", new { area = "" }, null)</li>
                 </ul>
+                @if (Request.IsAuthenticated)
+                {
+                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Home", routeValues: new {area = "Admin"}, htmlAttributes: new { title = "Manage" })
+                            </li>
+                            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+                        </ul>
+                    }
+                }
+                else
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                    </ul>
+                }
             </div>
         </div>
     </nav>

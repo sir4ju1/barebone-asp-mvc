@@ -12,6 +12,7 @@ using Base.Infrastructure.Model;
 
 namespace BareboneFramework.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class NewsController : Controller
     {
         private BaseDbContext _context;
@@ -33,11 +34,30 @@ namespace BareboneFramework.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                model.PublishDate = DateTime.Now;
                 _context.Entry(model).State = EntityState.Added;
                 await _context.SaveChangesAsync();
             }
             return RedirectToAction("Index");
         }
-        
-	}
+
+        public async Task<ActionResult> Edit(int id)
+        {
+            var item = await _context.News.FindAsync(id);
+            return View(item);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Edit(News model)
+        {
+            if (ModelState.IsValid)
+            {
+                model.PublishDate = DateTime.Now;
+                _context.Entry(model).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToAction("Index");
+        }
+
+    }
 }

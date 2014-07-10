@@ -12,6 +12,7 @@ using Base.Infrastructure.Model;
 
 namespace BareboneFramework.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CategoryController : Controller
     {
         private BaseDbContext _context;

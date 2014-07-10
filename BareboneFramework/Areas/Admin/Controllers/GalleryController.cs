@@ -13,6 +13,7 @@ using Base.Infrastructure.Model;
 
 namespace BareboneFramework.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class GalleryController : Controller
     {
         private BaseDbContext _context;
@@ -44,7 +45,7 @@ namespace BareboneFramework.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create([Bind(Exclude = "Id")]DetailsViewModel model, HttpPostedFileBase image)
+        public async Task<ActionResult> Create([Bind(Exclude = "Id")]DetailsViewModel model, HttpPostedFileBase image)
         {
             if (ModelState.IsValid)
             {
@@ -58,15 +59,48 @@ namespace BareboneFramework.Areas.Admin.Controllers
                 Mapper.CreateMap<DetailsViewModel, GalleryItem>();
                 var item = Mapper.Map<DetailsViewModel, GalleryItem>(model);
                 _context.Entry(item).State = EntityState.Added;
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
             }
             return RedirectToAction("Index");
         }
-        [HttpPost]
-        public ActionResult Update(DetailsViewModel model)
-        {
 
-            return null;
+        public async Task<ActionResult> Update(int id)
+        {
+            Mapper.CreateMap<GalleryItemCategory, ImageListViewModel>();
+            Mapper.CreateMap<GalleryItem, DetailsViewModel>();
+
+            //var model = new DetailsViewModel();
+            
+            var gallery = await _context.GalleryItems.FindAsync(id);
+            var model = Mapper.Map<GalleryItem, DetailsViewModel>(gallery);
+            model.ListItems = await _context.GalleryItemCategories.Select(c =>
+                  new SelectListItem
+                  {
+                      Text = c.Name,
+                      Value = c.Id.ToString()
+                  }).ToListAsync();
+            return View(model);
+
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Update(DetailsViewModel model, HttpPostedFileBase image)
+        {
+            if (ModelState.IsValid)
+            {
+                if (image != null && image.ContentLength > 0)
+                {
+                    var filename = Path.GetFileName(image.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Public/Images"), filename);
+                    image.SaveAs(path);
+                    model.ImagePath = string.Format("~/Public/Images/{0}", filename);
+                }
+                Mapper.CreateMap<DetailsViewModel, GalleryItem>();
+                var item = Mapper.Map<DetailsViewModel, GalleryItem>(model);
+                _context.Entry(item).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToAction("Index");
         }
     }
 }
